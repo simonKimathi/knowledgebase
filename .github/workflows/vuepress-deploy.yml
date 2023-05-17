@@ -12,6 +12,6 @@ jobs:
         env:
           ACCESS_TOKEN: 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
           TARGET_REPO: simonKimathi/knowledgebase
-          TARGET_BRANCH: master
+          TARGET_BRANCH: deploy
           BUILD_SCRIPT: yarn && yarn build
           BUILD_DIR: src/.vuepress/dist/
