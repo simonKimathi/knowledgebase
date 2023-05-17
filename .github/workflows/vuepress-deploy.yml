@@ -10,7 +10,7 @@ jobs:
       - name: vuepress-deploy
         uses: jenkey2011/vuepress-deploy@master
         env:
-          ACCESS_TOKEN: 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
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           TARGET_REPO: simonKimathi/knowledgebase
           TARGET_BRANCH: deploy
           BUILD_SCRIPT: yarn && yarn build
