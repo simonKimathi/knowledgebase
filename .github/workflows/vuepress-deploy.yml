@@ -3,7 +3,7 @@ name: VuePress Deploy
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -13,19 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-#      - name: Set up N ode.js
-#        uses: acti ons/setup-node@v2
-#        with:
-#          node-version: 14
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
 
       - name: Install dependencies
         run: yarn install
 
-      - name: legacy support
-        run: export NODE_OPTIONS=--openssl-legacy-provider
-
       - name: Build site
         run: yarn build
+
+      - name: Add CNAME file
+        run: echo 'knowledgebase.systechafrica.com' > ./src/.vuepress/dist/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
